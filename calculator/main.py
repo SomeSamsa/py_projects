@@ -11,10 +11,23 @@ calc.attributes("-topmost", True)
 future = ttk.Button(text = "will be future entry")
 future.grid(row = 0, column = 0, columnspan=4)
 
+def clicked_button(i):
+    if i == 1:
+        future["text"] = f"{i}st button clicked"
+    if i == 2:
+        future["text"] = f"{i}nd button clicked"
+    if i == 3:
+        future["text"] = f"{i}rd button clicked"
+    else: 
+        future["text"] = f"{i}th button clicked"
+
+number = 0
+
 for r in range(1, 7):
     for c in range(4):
-        btn3 = ttk.Button(text=f"({r},{c+1})")
-        btn3.grid(row=r, column=c) 
+        number += 1
+        btn = ttk.Button(text=f"{number}", command = lambda i = number: clicked_button(i))
+        btn.grid(row=r, column=c) 
 
 
 calc.mainloop()
