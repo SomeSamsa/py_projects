@@ -46,8 +46,8 @@ root.attributes("-topmost", True) #true-keeps always on top false-allows other t
 # btn2.pack(anchor="w", fill = X, padx = 20, pady = 30, ipadx = 10, ipady = 40)
 #btn2.place(relx=0.5, rely=0.5, anchor = CENTER,  relwidth=0.66, relheight=0.25)
 
-for c in range(4): root.columnconfigure(index=c, weight=1)
-for r in range(6): root.rowconfigure(index=r, weight=1)
+root.rowconfigure(0, weight = 3)
+for column in range(4): root.columnconfigure(index = column, weight=1)
 
 for r in range(6):
     for c in range(4):
