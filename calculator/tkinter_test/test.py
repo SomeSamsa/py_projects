@@ -47,17 +47,36 @@ root.attributes("-topmost", True) #true-keeps always on top false-allows other t
 #btn2.place(relx=0.5, rely=0.5, anchor = CENTER,  relwidth=0.66, relheight=0.25)
 
 #for column in range(4): root.columnconfigure(index = column, weight=1)
-future = ttk.Button(text = "will be future entry")
-future.grid(row = 0, column = 0, columnspan=4,  ipadx=6, ipady=6, padx = [15, 4], pady=4)
+# future = ttk.Button(text = "will be future entry")
+# future.grid(row = 0, column = 0, columnspan=4,  ipadx=6, ipady=6, padx = [15, 4], pady=4)
  
 def clicked_button(i):
-    future["text"] = f"Button clicked {i}"
+    entry.insert(0, i)
+
+num = 0
+
+def equel():
+    return num
+
+def sum():
+    global num 
+    num += entry.get
+    entry.delete(0, END)
+
+
+entry = ttk.Entry()
+entry.grid(row = 0, column = 0, columnspan=4)
 
 numbers = 0
 for r in range(1, 7):
     for c in range(4):
         numbers += 1
-        btn3 = ttk.Button(text=f"{numbers}", command=lambda i=numbers: clicked_button(i))
-        btn3.grid(row=r, column=c, ipadx=6, ipady=6, padx = [15, 4], pady=4)
+        if numbers == 12:
+            pl = ttk.Button(text="+", command = sum)
+        if numbers == 13:
+            eq = ttk.Button(text="=", command = equel)
+        else :
+            btn3 = ttk.Button(text=f"{numbers}", command=lambda i=numbers: clicked_button(i))
+            btn3.grid(row=r, column=c, ipadx=6, ipady=6, padx = [15, 4], pady=4)
 
 root.mainloop()
